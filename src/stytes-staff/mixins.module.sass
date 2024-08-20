@@ -1,0 +1,36 @@
+@use './variables.module.sass' as var
+
+@mixin GradientColor
+    background-image: linear-gradient(to bottom, #20B2AA 0%, #00BFFF 35%, #4169E1 50%, #7B68EE 75% )
+    -webkit-background-clip: text
+    -webkit-text-fill-color: transparent
+
+@mixin DefaultBorder 
+    border: 2px solid  
+    border-radius: 5px
+    border-color: var.$defaultColor
+
+@mixin ActiveBorder
+    @include DefaultBorder
+    border-color: var.$activeColor
+    
+
+@mixin Btn 
+    @include DefaultBorder
+    background-color: var.$altBGColor
+    cursor: pointer
+    color: var.$defaultColor
+    font-size: 16px
+
+@mixin hoverBtn
+    color: var.$activeColor
+    border-color: var.$activeColor
+
+@mixin activeBtn 
+    border-color: var.$activeColor
+    background-color: var.$activeColor
+    color: var.$altBGColor
+
+@mixin deliteBtn 
+    border-color: var.$deliteColor
+    color: var.$deliteColor

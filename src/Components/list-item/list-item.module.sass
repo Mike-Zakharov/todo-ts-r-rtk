@@ -1,0 +1,40 @@
+@use '../../stytes-staff/variables.module.sass' as var
+@use '../../stytes-staff/mixins.module.sass' as mixin
+
+.important
+    font-weight: 900
+    @include  mixin.GradientColor
+    
+.done
+    text-decoration: line-through
+    text-decoration-color: #2F4F4F
+
+.listItem
+    margin-top: 10px
+    cursor: pointer
+    font-family: var.$font-fam
+    display: flex
+    justify-content: space-between
+    span
+        margin: 0 20px
+        font-size: 22px
+
+.btn 
+    @include mixin.Btn
+    width: 30px
+    height: 30px
+    font-weight: 900
+
+.btn:hover
+    @include mixin.hoverBtn
+
+.btn:active
+    @include mixin.activeBtn
+
+.btn:hover:last-child
+    @include mixin.deliteBtn
+    
+.btn:active:last-child
+    background-color: var.$deliteColor 
+    color: var.$altBGColor          
+    
