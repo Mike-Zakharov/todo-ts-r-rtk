@@ -10,14 +10,14 @@
     text-decoration-color: #2F4F4F
 
 .listItem
+    @include mixin.DefaultFont
     margin-top: 10px
     cursor: pointer
-    font-family: var.$font-fam
     display: flex
     justify-content: space-between
     span
         margin: 0 20px
-        font-size: 22px
+
 
 .btn 
     @include mixin.Btn

@@ -1,33 +1,34 @@
 import { FC } from "react";
-import {ButtonsLabels, FilterTodoItems} from '../../store/todo-slice'
-import { useAppDispatch } from '../../hooks/hooks';
+import {FilterLabel, FilterTodoItems} from '../../store/todo-slice'
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import styles from './status-filter.module.sass';
+
 
 const StatusFilter: FC = () => {
-    
-    // сделать радио кнопки и стилизовать их под обычные https://snipp.ru/html-css/style-radio
-    // добавить в стейт статус фильтр и при клике на кнопку менять его,а он меняет отображение
-
-    const dispatch = useAppDispatch()
+    const dispatch = useAppDispatch();
+    let validLabel = useAppSelector(state => state.todoList.filter);
 
     type Label = {
-            label: ButtonsLabels;    
+            label: FilterLabel;    
         };
 
     const buttonsArr: Label[] = [
         {label: 'all' },
-        {label: 'active' },
+        {label: "active" },
         {label: 'done' },
     ];
 
-    const onFilterItems = (label:ButtonsLabels) => {
-        dispatch(FilterTodoItems(label))
+    const onFilterItems = (label:FilterLabel) => {
+        dispatch(FilterTodoItems(label))    
     }
 
     const buttons = buttonsArr.map(btn => {
-        
+        let isActive = validLabel === btn.label;
+        let btnStyles = isActive ? `${styles.pressBtn}` : `${styles.filterBtn}`;
 
         return(
-            <button name={btn.label} key={btn.label}
+            <button id={btn.label} name={btn.label}
+                    key={btn.label} className={btnStyles}
                     onClick={()=>onFilterItems(btn.label)}>
                 {btn.label}
             </button>

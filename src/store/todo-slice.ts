@@ -7,11 +7,12 @@ export type TodoStateItem = {
   done: boolean;
 }
 
-export type ButtonsLabels = 'all' | 'active' | 'done';
+export type FilterLabel = 'all' | 'active' | 'done';
 
 type TodoState = {
   list: TodoStateItem[],
-  filter: ButtonsLabels
+  filter: FilterLabel,
+  searchTitle: string
 }
 
 const initialState: TodoState = {
@@ -20,7 +21,8 @@ const initialState: TodoState = {
     {title:'Learn React TS', important: true, id:98, done:false},
     {title:'Build React TS App', important: true, id:99, done:false}   
   ],
-  filter: 'all'
+  filter: 'all',
+  searchTitle: ''
 }
 
 let startId = 100;
@@ -53,21 +55,11 @@ const todoSlice = createSlice({
           toggledDone.done = !toggledDone.done
         }
       },
-      FilterTodoItems(state, action: PayloadAction<ButtonsLabels>){
-
-        switch(action.payload){
-          case "all":
-            state.list = state.list;
-            break;
-          case "active":
-            state.list = state.list.filter(item => item.done === false)
-            break;
-          case "done":
-            state.list = state.list.filter(item => item.done)
-            break;
-          default:
-            state.list = state.list
-        }
+      FilterTodoItems(state, action: PayloadAction<FilterLabel>){
+        state.filter = action.payload
+      },
+      SearchingTodoItems(state, action: PayloadAction<string>){
+        state.searchTitle = action.payload
       }
     }
       
@@ -79,7 +71,8 @@ export const {
   DeliteTodoItem, 
   ToggleTodoImportant, 
   ToggleTodoDone,
-  FilterTodoItems 
+  FilterTodoItems,
+  SearchingTodoItems 
 } = todoSlice.actions;
 
 export default todoSlice.reducer;

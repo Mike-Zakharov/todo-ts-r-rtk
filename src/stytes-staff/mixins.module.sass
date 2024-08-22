@@ -1,9 +1,13 @@
 @use './variables.module.sass' as var
 
 @mixin GradientColor
-    background-image: linear-gradient(to bottom, #20B2AA 0%, #00BFFF 35%, #4169E1 50%, #7B68EE 75% )
+    background-image: linear-gradient(to bottom, #20B2AA 0%, #00BFFF 35%, #4169E1 65% )
     -webkit-background-clip: text
     -webkit-text-fill-color: transparent
+
+@mixin DefaultFont
+    font-family: var.$font-fam
+    font-size: 22px
 
 @mixin DefaultBorder 
     border: 2px solid  
@@ -34,3 +38,7 @@
 @mixin deliteBtn 
     border-color: var.$deliteColor
     color: var.$deliteColor
+
+@mixin focusBtn
+    background-color: var.$defaultColor
+    color: var.$altBGColor

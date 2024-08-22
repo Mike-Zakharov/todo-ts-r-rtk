@@ -1,0 +1,29 @@
+@use '../../stytes-staff/variables.module.sass' as var
+@use '../../stytes-staff/mixins.module.sass' as mixin
+
+.filterBtn
+    @include mixin.DefaultFont
+    @include mixin.Btn
+    text-transform: capitalize
+    height: 35px
+
+.filterBtn:nth-of-type(2)
+    border-radius: 0  
+    border-right: 0
+    border-left: 0
+
+.filterBtn:first-of-type
+    border-radius: 5px 0 0 5px 
+    
+.filterBtn:last-of-type
+    border-radius: 0 5px 5px 0
+
+.pressBtn
+    @extend .filterBtn
+    @include mixin.focusBtn
+    
+.filterBtn:hover:not(.pressBtn)
+    @include mixin.hoverBtn
+    
+    
+        
