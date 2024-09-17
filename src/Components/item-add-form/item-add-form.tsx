@@ -10,8 +10,9 @@ const ItemAddForm: FC = () => {
     const onLabelChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         setLabel(e.target.value)    
     };
-
     const dispatch = useAppDispatch()
+
+    const maxLength = 24;
 
     const handleAddItem = (
         e: React.FormEvent<HTMLFormElement>,
@@ -22,6 +23,7 @@ const ItemAddForm: FC = () => {
         if(label.trim().length){
             dispatch(AddTodoItem(label));
             setLabel('') 
+            e.currentTarget.scrollIntoView({ block:'center'})
         }
         
     };
@@ -31,9 +33,10 @@ const ItemAddForm: FC = () => {
                 onSubmit={ (e) => handleAddItem(e,label,setLabel) }>
             <input 
                 name='add-form'
-                className={styles.form} 
+                maxLength={maxLength}
                 type="text" 
                 placeholder='What needs to be done' 
+                className={styles.form} 
                 onChange={onLabelChange}
                 value={label}
                 >         

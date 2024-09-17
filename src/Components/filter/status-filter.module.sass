@@ -6,6 +6,9 @@
     @include mixin.Btn
     text-transform: capitalize
     height: 35px
+    padding: 0 10px
+    @media screen and (max-width: 730px)
+        padding: 0 15px
 
 .filterBtn:nth-of-type(2)
     border-radius: 0  
@@ -23,7 +26,4 @@
     @include mixin.focusBtn
     
 .filterBtn:hover:not(.pressBtn)
-    @include mixin.hoverBtn
-    
-    
-        
+    @include mixin.hoverBtn        

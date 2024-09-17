@@ -9,13 +9,11 @@ const App: FC = () => {
  
 
   return (
-    <div>
-      <div className={styles.wrapper}>
-        <h1 className={styles.header}>Todo App</h1>
-        <Header/>
-        <TodoList/>
-        <ItemAddForm />
-      </div>
+    <div className={styles.wrapper}>
+      <h1 className={styles.header}>Todo App</h1>
+      <Header/>
+      <TodoList/>
+      <ItemAddForm />
     </div>
   );
 }

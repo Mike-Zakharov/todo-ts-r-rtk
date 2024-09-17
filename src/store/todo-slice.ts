@@ -17,9 +17,10 @@ type TodoState = {
 
 const initialState: TodoState = {
   list: [
-    {title:'Drink Coffe', important: false, id:97, done:false},
-    {title:'Learn React TS', important: true, id:98, done:false},
-    {title:'Build React TS App', important: true, id:99, done:false}   
+    {title:'Drink morning coffee', important: true, id:96, done:false},
+    {title:'watch the series', important: false, id:97, done:false},
+    {title:"click click keyboard like I'm working", important: true, id:98, done:false},
+    {title:'Drink coffee', important: false, id:99, done:false}  
   ],
   filter: 'all',
   searchTitle: ''

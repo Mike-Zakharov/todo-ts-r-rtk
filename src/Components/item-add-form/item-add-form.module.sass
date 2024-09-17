@@ -2,17 +2,18 @@
 @use '../../stytes-staff/mixins.module.sass' as mixin
 
 .wrapper
-    width: 400px
+    max-width: 400px
     margin: 0 auto
     margin-top: 40px  
     display: flex
     justify-content: space-between  
 
 .form
-    width: 300px
+    width: min(100% - 90px, 300px)
     height: 30px
     @include mixin.DefaultBorder
     padding-left: 5px
+    
 
 .form:focus
     @include mixin.ActiveBorder
@@ -21,13 +22,14 @@
 .form::placeholder
     color: #A9A9A9
     font-size: 16px
-    
+
 .addBtn
     @include mixin.Btn
     width: 60px
 
 .addBtn:hover
-    @include mixin.hoverBtn
+    @media screen and (min-width: 992px)
+        @include mixin.hoverBtn
 
 .addBtn:active
     @include mixin.activeBtn

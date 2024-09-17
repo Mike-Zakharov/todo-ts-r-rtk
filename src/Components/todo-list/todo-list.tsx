@@ -9,14 +9,18 @@ function filteredItems(filter:FilterLabel, state:TodoStateItem[]): TodoStateItem
     let visibleState: TodoStateItem[] = []
     switch(filter){
         case "all":
-            return visibleState = state;
+            visibleState = state;
+            break;
         case "active":
-            return visibleState = state.filter(item => item.done === false)
+            visibleState = state.filter(item => item.done === false)
+            break;
         case "done":
-            return visibleState = state.filter(item => item.done)
+            visibleState = state.filter(item => item.done)
+            break;
         default:
-            return visibleState = state;
-      }
+            visibleState = state;
+    }
+    return visibleState;
 }
 
 function SearchingItems(items: TodoStateItem[], searchString: string): TodoStateItem[] {
